@@ -4,7 +4,16 @@ const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth')
 
 //GET==========================================================================================
-
+router.get('/Flyer', (req, res) =>{
+    Flyer.findAll ({
+        attributes: 
+        [
+            'id',
+            'name'
+            [sequelize.literal('SELECT COUNT(*) FROM vote WHERE flyer.id = ]
+        ]
+    })
+})
 //POST==========================================================================================
 
 //PUT==========================================================================================
