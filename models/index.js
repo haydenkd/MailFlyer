@@ -10,6 +10,13 @@ User.hasMany(Flyer, {
 
 Flyer.belongsTo(User, {
     foreignKey: 'owner_id',
+    as: 'owner',
+    onDelete: 'SET NULL'
+});
+
+Flyer.belongsTo(User, {
+    foreignKey: 'recipient_id',
+    as: 'recipient',
     onDelete: 'SET NULL'
 });
 

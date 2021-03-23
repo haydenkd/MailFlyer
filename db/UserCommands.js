@@ -21,7 +21,7 @@
 
 // Find User Email by ID
 (req, res) => {
-    Post.findOne({
+    User.findOne({
         attributes: { exclude: ['password'] },
         where: {
             id: req.params.id
@@ -33,7 +33,7 @@
 
 // Find User/Recipient ID by email
 (req, res) => {
-    Post.findOne({
+    User.findOne({
         attributes: { exclude: ['password'] },
         where: {
             email: req.params.email
