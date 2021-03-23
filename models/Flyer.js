@@ -26,18 +26,21 @@ Flyer.init(
         key: 'id'
       }
     },
+    recipient_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'email_addresses',
+        key: 'id'
+      }
+    },
     start_date: {
       type: DataTypes.DATE
     },
     stop_date: {
       type: DataTypes.DATE
     },
-    freq_id: {
+    frequency: {
       type: DataTypes.INTEGER,
-      references: {
-        model: 'flyer_frequency',
-        key: 'id'
-      }
     },
     active: {
       type: DataTypes.BOOLEAN
