@@ -3,14 +3,16 @@
 async function newFormHandler(event) {
     event.preventDefault();
   
-    const email = document.querySelector('input[name="post-title"]').value;
-    const postBody = document.querySelector('textarea[name="post-body"]').value;
+    const recipient = document.querySelector('input[id="email"]').value;
+    const type = document.querySelector('').value;
+    const frequency = document.querySelector('').value;
   
-    const response = await fetch(`/api/posts`, {
+    const response = await fetch(`/api/flyer`, {
       method: 'POST',
       body: JSON.stringify({
-        title,
-        postBody
+        recipient,
+        type,
+        frequency
       }),
       headers: {
         'Content-Type': 'application/json'
@@ -24,4 +26,4 @@ async function newFormHandler(event) {
     }
   }
   
-  document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+  document.querySelector('.new-flyer-form').addEventListener('submit', newFormHandler);
