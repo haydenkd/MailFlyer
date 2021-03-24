@@ -39,6 +39,14 @@ app.set('view engine', 'handlebars');
 
 app.use(routes);
 
+async function checkFlyers(){
+    while (true){
+        
+    }
+}
+
+checkFlyers();
+
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log(' Now listening ' + PORT));
 });
