@@ -1,29 +1,86 @@
 const router = require('express').Router();
-const { Comment, Flyer, Post, User } = require('../../models');
 const sequelize = require('../../config/connection');
-const withAuth = require('../../utils/auth')
+const { User, Flyer, ContentType } = require('../../models');
 
-//GET==========================================================================================
-//GET USER_ID this will be on the Dashboard 
+// get all flyers
+router.get('/', (req, res) => {
+  Flyer.findAll({
+    include: [
+        {
+          model: User,
+          as: 'owner',
+          attributes: ['email']
+        },
+        {
+          model: User,
+          as: 'recipient',
+          attributes: ['email']
+        },
+        {
+          model: ContentType,
+          attributes: ['type']
+        }
+      ]
+  })
+    .then(dbFlyer => {
+      res.json(dbFlyer);
+  });
+});
 
-router.get('/Flyer', (req, res) =>{
-    Flyer.findAll ({
-        attributes: 
-        [
-            'id',
-            'name'
-            [sequelize.literal('SELECT COUNT(*) FROM vote WHERE flyer.id = ]
-        ]
-    })
-})
-//POST==========================================================================================
-//Create a new flyer 
+// create flyer
+router.post('/', (req, res) => {
+  Flyer.create({
+    owner_id: req.body.owner_id,
+    content_id: req.body.content_id,
+    recipient_id: req.body.recipient_id,
+    start_date: req.body.start_date,
+    stop_date: req.body.stop_date,
+    frequency: req.body.frequency,
+    active: req.body.active
+  })
+    .then(dbFlyer => {
+      res.json(dbFlyer);
+  });
+});
 
+// get single flyer by ID
+router.get('/:id', (req, res) => {
+  Flyer.findOne({
+    where: {
+      id: req.params.id
+    }
+  }).then(dbFlyer => {
+    res.json(dbFlyer);
+  });
+});
 
-//PUT==========================================================================================
-// update the flyer and time/
-// 
+// Update flyer by ID
+router.put('/:id', (req, res) => {
+  Flyer.update({
+      content_id: req.body.content_id,
+      start_date: req.body.start_date,
+      stop_date: req.body.stop_date,
+      frequency: req.body.frequency,
+      active: req.body.active
+    },
+    {
+    where: {
+      id: req.params.id
+    }
+  }).then(dbFlyer => {
+    res.json(dbFlyer);
+  });
+});
 
+// Delete flyer by ID
+router.delete('/:id', (req, res) => {
+  Flyer.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then(dbFlyer => {
+    res.json(dbFlyer);
+  });
+});
 
-//DELETE==========================================================================================
-// delete the fyler 
+module.exports = router;

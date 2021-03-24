@@ -1,5 +1,5 @@
 // import all models
-const User = require('./User');
+//const User = require('./User');
 const Flyer = require('./Flyer');
 const ContentType = require('./ContentType');
 
