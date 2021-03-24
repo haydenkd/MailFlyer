@@ -1,14 +1,14 @@
-const seedPosts = require('../seeds/index.js');
+const seedContentTypes = require('./content-type-seeds');
 
 const sequelize = require('../config/connection');
 
 const seedAll = async () => {
-    await sequelize.sync({ force: true });
-    console.log('\n----- DATABASE SYNCED -----\n');
-    await seedPosts();
-    console.log('\n----- POSTS SEEDED -----\n');
+  await sequelize.sync({ force: true });
+  console.log('--------------');
+  await seedContentTypes();
+  console.log('--------------');
 
-    process.exit(0);
+  process.exit(0);
 };
 
 seedAll();

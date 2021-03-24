@@ -1,30 +1,33 @@
+// import all models
 const User = require('./User');
-const Post = require('./Post');
-const Comment = require('./Comment');
+const Flyer = require('./Flyer');
+const ContentType = require('./ContentType');
 
-//create associations
-User.hasMany(Post, {
-    foreignKey: 'user_id'
+// create associations
+User.hasMany(Flyer, {
+    foreignKey: 'owner_id'
 });
 
-Post.belongsTo(User, {
-    foreignKey: 'user_id',
+Flyer.belongsTo(User, {
+    foreignKey: 'owner_id',
+    as: 'owner',
+    onDelete: 'SET NULL'
 });
 
-Comment.belongsTo(User, {
-    foreignKey: 'user_id'
+Flyer.belongsTo(User, {
+    foreignKey: 'recipient_id',
+    as: 'recipient',
+    onDelete: 'SET NULL'
 });
 
-Comment.belongsTo(Post, {
-    foreignKey: 'post_id'
+Flyer.belongsTo(ContentType, {
+    foreignKey: 'content_id',
+    onDelete: 'SET NULL'
 });
 
-User.hasMany(Comment, {
-    foreignKey: 'user_id'
+ContentType.hasMany(Flyer, {
+    foreignKey: 'content_id',
+    onDelete: 'SET NULL'
 });
 
-Post.hasMany(Comment, {
-    foreignKey: 'post_id'
-});
-
-module.exports = { User, Post, Comment };
+module.exports = { User, Flyer, ContentType };

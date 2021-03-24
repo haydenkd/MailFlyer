@@ -1,41 +1,57 @@
-const { title } = require('node:process');
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+// create our Flyer model
+class Flyer extends Model {}
 
-//CREATE OUR FLYER
-class Flyer extends Model { }
-
-//CREATE FIELDS/COLUMNS for FLYER MODEl
-Flyer.init (
-    {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true
-        },
-        title: {
-            type: DataTypes.STRING, 
-            allowNull: false
-        },
-        post_content: {
-            type: DataTypes.TEXT,
-            allowNull: true
-        },
-        user_id: {
-            type:DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id'
-            } 
-        }
+// create fields/columns for Flyer model
+Flyer.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
     },
-    {
-        sequelize,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'post' 
+    owner_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'email_addresses',
+        key: 'id'
+      }
+    },
+    content_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'flyer_type',
+        key: 'id'
+      }
+    },
+    recipient_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'email_addresses',
+        key: 'id'
+      }
+    },
+    start_date: {
+      type: DataTypes.DATE
+    },
+    stop_date: {
+      type: DataTypes.DATE
+    },
+    frequency: {
+      type: DataTypes.INTEGER,
+    },
+    active: {
+      type: DataTypes.BOOLEAN
     }
+  },
+  {
+    sequelize,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'flyer_list'
+  }
 );
 
 module.exports = Flyer;
