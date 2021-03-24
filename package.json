@@ -2,17 +2,25 @@
   "name": "project-2",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+<<<<<<< HEAD
 <<<<<<< HEAD
     "test": "echo \"Error: no test specified\" && exit 1"
 =======
     "test": "jest"
 >>>>>>> 2b1387fa74e81c65653a896beeb6dd09d82820c9
+=======
+    "test": "jest",
+    "test-dev": "npm test",
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "seed": "node seeds/index.js"
+>>>>>>> 0c9e9da46f87b4fa603a4513f9b917e52c945ce0
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/haydenkd/project-2.git"
+    "url": "git+https://github.com/haydenkd/MailFlyer.git"
   },
 <<<<<<< HEAD
 =======
@@ -21,8 +29,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/haydenkd/project-2/issues"
+    "url": "https://github.com/haydenkd/MailFlyer/issues"
   },
+<<<<<<< HEAD
   "homepage": "https://github.com/haydenkd/project-2#readme",
 <<<<<<< HEAD
   "dependencies": {
@@ -30,14 +39,30 @@
     "node-fetch": "^2.6.1",
     "nodemailer": "^6.5.0"
 =======
+=======
+  "homepage": "https://github.com/haydenkd/MailFlyer#readme",
+>>>>>>> 0c9e9da46f87b4fa603a4513f9b917e52c945ce0
   "devDependencies": {
     "jest": "^26.6.3"
   },
   "dependencies": {
-    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "bulma": "^0.9.2",
+    "connect-session-sequelize": "^7.1.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+<<<<<<< HEAD
     "mysql2": "^2.2.5"
 >>>>>>> 2b1387fa74e81c65653a896beeb6dd09d82820c9
+=======
+    "express-handlebars": "^5.2.1",
+    "express-session": "^1.17.1",
+    "jest": "^26.6.3",
+    "mysql2": "^2.2.5",
+    "node": "^15.10.0",
+    "nodemon": "^2.0.7",
+    "sequelize": "^6.5.1"
+
+>>>>>>> 0c9e9da46f87b4fa603a4513f9b917e52c945ce0
   }
 }
