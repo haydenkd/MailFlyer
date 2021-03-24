@@ -17,12 +17,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/haydenkd/project-2.git"
+    "url": "git+https://github.com/haydenkd/MailFlyer.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/haydenkd/project-2/issues"
+    "url": "https://github.com/haydenkd/MailFlyer/issues"
   },
-  "homepage": "https://github.com/haydenkd/project-2#readme"
+  "homepage": "https://github.com/haydenkd/MailFlyer#readme",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5"
+  }
 }
