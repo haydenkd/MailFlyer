@@ -19,6 +19,33 @@ let transporter = nodemailer.createTransport({
     }
 });
 
+// send a flyer with a random meme from gfycat
+async function jokeFlyer(email){
+    fetch('https://icanhazdadjoke.com/',{
+        method: "GET",
+        headers: {
+            "Accept": "application/json",
+    }})
+    .then(res => res.json())
+    .then(data => {
+        email.text = data.joke;
+        email.html = `<b>${data.joke}<b>`;
+        console.log(email);
+        sendFlyer(email);
+    })
+    .catch(err => console.error(err));
+}
+
+// send a flyer with an inspirational quote attached
+let quoteFlyer = function(email){
+    var quotes = [];
+    var selection = (Math.floor(Math.random()) * (quotes.length - 1));
+    email.text = quotes[selection];
+    email.html = `<b>${quotes[selection]}<b>`;
+    console.log(email);
+    sendFlyer(email);
+}
+
 // send an insult flyer
 async function insultFlyer(email){
     fetch("https://www.evilinsult.com/generate_insult.php?type=plain&lang=en&_=1616109722882")
@@ -43,4 +70,3 @@ let sendFlyer = function(email){
     });
 }
 
-insultFlyer(email);
