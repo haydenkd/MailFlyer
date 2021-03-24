@@ -20,8 +20,10 @@ const sess = {
     cookie: {
         expires: 10 * 60 * 1000
     },
-    resave: true,
-    rolling: true,
+    // resave: true,
+    // rolling: true,
+    resave: false,
+    rolling: false,
     saveUninitialized: true,
     store: new SequelizeStore({
         db: sequelize
@@ -31,7 +33,8 @@ const sess = {
 app.use(session(sess));
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.engine('handlebars', hbs.engine);
