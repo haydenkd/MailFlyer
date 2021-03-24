@@ -1,14 +1,11 @@
-require('dotenv').config({path: '../.env'});
+require('dotenv').config({path: '../../.env'});
 const nodemailer = require('nodemailer');
 const fetch = require('node-fetch');
 const quotes = require('../mailer/quotes');
-
-/* 
-
-this is how the email object should be laid out
-
+/*
+this is what the email object is meant to look like
 let email = {
-    to: "example@mail.com",
+    to: "",
     subject: "New Flyer ✔",
     text: "This is a flyer.",
     html: "<b>This is a flyer.</b>"
