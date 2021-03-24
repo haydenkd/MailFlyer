@@ -1,13 +1,8 @@
 const router = require('express').Router();
-// const flyerRoutes = require('./flyer-routes.js');
-// const apiRoutes = require('');
-const homeRoutes = require('../home-routes.js');
-// const dashboardRoutes = require('./dashboard-routes.js');
+// const flyerRoutes = require('./flyer-routes');
+const userRoutes = require('./user-routes');
 
-router.use('/', homeRoutes);
-// router.use('/dashboard', dashboardRoutes);
-// router.use('/create-flyer', flyerRoutes);
-// router.use('/api', apiRoutes);
-
+// router.use('/flyer', flyerRoutes);
+router.use('/user', userRoutes);
 
 module.exports = router;
