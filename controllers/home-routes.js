@@ -6,7 +6,7 @@ const { User, Flyer, ContentType } = require('../models');
 router.get('/', (req, res) => {
     console.log(req.session);
 
-    res.render('layouts/main');
+    res.render('homepage');
 });
 
 //GET.login====================================================================================

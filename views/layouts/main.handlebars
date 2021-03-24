@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
@@ -17,10 +17,10 @@
     <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">MailFlyer</a>
       <ul class="right hide-on-med-and-down">
         {{#if loggedIn}}
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Log Out</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/logout">Log Out</a></li>
         {{else}}
-        <li><a href="login.html">Log In</a></li>
+        <li><a href="/login">Log In</a></li>
         {{/if}}
       </ul>
       <ul id="nav-mobile" class="sidenav">
