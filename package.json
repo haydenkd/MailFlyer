@@ -4,21 +4,40 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "test": "echo \"Error: no test specified\" && exit 1"
+=======
+    "test": "jest"
+>>>>>>> 2b1387fa74e81c65653a896beeb6dd09d82820c9
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/haydenkd/project-2.git"
   },
+<<<<<<< HEAD
+=======
+  "keywords": [],
+>>>>>>> 2b1387fa74e81c65653a896beeb6dd09d82820c9
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/haydenkd/project-2/issues"
   },
   "homepage": "https://github.com/haydenkd/project-2#readme",
+<<<<<<< HEAD
   "dependencies": {
     "dotenv": "^8.2.0",
     "node-fetch": "^2.6.1",
     "nodemailer": "^6.5.0"
+=======
+  "devDependencies": {
+    "jest": "^26.6.3"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5"
+>>>>>>> 2b1387fa74e81c65653a896beeb6dd09d82820c9
   }
 }
