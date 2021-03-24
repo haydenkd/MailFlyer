@@ -34,10 +34,13 @@ Flyer.init(
       }
     },
     start_date: {
-      type: DataTypes.DATE
+      type: DataTypes.DATEONLY
     },
     stop_date: {
-      type: DataTypes.DATE
+      type: DataTypes.DATEONLY
+    },
+    prev_flyer_date: {
+      type: DataTypes.DATEONLY
     },
     frequency: {
       type: DataTypes.INTEGER,
