@@ -1,13 +1,19 @@
 require('dotenv').config({path: '../.env'});
 const nodemailer = require('nodemailer');
 const fetch = require('node-fetch');
+const quotes = require('../mailer/quotes');
+
+/* 
+
+this is how the email object should be laid out
 
 let email = {
-    to: "haydenkdennison@gmail.com",
+    to: "example@mail.com",
     subject: "New Flyer ✔",
     text: "This is a flyer.",
     html: "<b>This is a flyer.</b>"
 }
+*/
 
 let transporter = nodemailer.createTransport({
     host: "schlocked.com",
@@ -38,7 +44,6 @@ async function jokeFlyer(email){
 
 // send a flyer with an inspirational quote attached
 let quoteFlyer = function(email){
-    var quotes = [];
     var selection = (Math.floor(Math.random()) * (quotes.length - 1));
     email.text = quotes[selection];
     email.html = `<b>${quotes[selection]}<b>`;
@@ -70,3 +75,8 @@ let sendFlyer = function(email){
     });
 }
 
+module.exports = {
+    insultFlyer,
+    jokeFlyer,
+    quoteFlyer
+}

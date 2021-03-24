@@ -6,8 +6,7 @@ let quotes = [
     "The farther back we can look, the farther forward we are likely to see -Winston Churchill",
     "There is no such thing as a problem without a gift for you in its hands. You seek problems because you need their gifts. -Richard Bach",
     "Today is today, only today... tomorrow...it will only be yesterday. -L. Curt Erler",
-    "Do you wait for things to happen, or do you make them happen yourself? I believe in writing your own story. -Charlotte Eriksson",
-    ""
+    "Do you wait for things to happen, or do you make them happen yourself? I believe in writing your own story. -Charlotte Eriksson"
 ]
 
-module.exports(quotes);
+module.exports = quotes;
