@@ -6,7 +6,7 @@
         <h6>Your Flyers</h6>
         {{#if flyers.length}}
         <ol>
-            {{$each flyers as |flyer|}}
+            {{#each flyers as |flyer|}}
             <li>
                 {{> flyer-info flyer}}
                 <a href="/dashboard/edit/{{flyer.id}}">Edit Flyer</a>
@@ -17,7 +17,7 @@
         <p>You have no flyers yet.</p>
         {{/if}}
       </div>
-      <form action="/create" class="row center">
+      <form action="/dashboard/create" class="row center">
         <button type="submit" class="btn-large waves-effect waves-light orange">Create a New Flyer</button>
     </form>
     </div>
