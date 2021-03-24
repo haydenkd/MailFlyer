@@ -1,0 +1,24 @@
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">My Dashboard </h1>
+      <div class="row center">
+        <h6>Your Flyers</h6>
+        {{#if flyers.length}}
+        <ol>
+            {{$each flyers as |flyer|}}
+            <li>
+                {{> flyer-info flyer}}
+                <a href="/dashboard/edit/{{flyer.id}}">Edit Flyer</a>
+            </li>
+            {{/each}}
+        </ol>
+        {{else}}
+        <p>You have no flyers yet.</p>
+        {{/if}}
+      </div>
+      <form action="/create" class="row center">
+        <button type="submit" class="btn-large waves-effect waves-light orange">Create a New Flyer</button>
+    </form>
+    </div>
+  </div>
