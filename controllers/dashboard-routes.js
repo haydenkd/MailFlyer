@@ -125,7 +125,7 @@ router.get('/create/', withAuth, (req, res) => {
 });
 
 //DELETE==============================================================================
-router.delete('/', withAuth, (req,res) => {
+router.delete('/:id', withAuth, (req,res) => {
     Post.destroy ({
         where: {
             id: req.params.id
