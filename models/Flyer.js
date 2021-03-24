@@ -1,9 +1,41 @@
+const { title } = require('node:process');
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const { truncate} = require('./User');
 
-class Flyer extends Model{
-    static upvote(body, models){
-        
+//CREATE OUR FLYER
+class Flyer extends Model { }
+
+//CREATE FIELDS/COLUMNS for FLYER MODEl
+Flyer.init (
+    {
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        title: {
+            type: DataTypes.STRING, 
+            allowNull: false
+        },
+        post_content: {
+            type: DataTypes.TEXT,
+            allowNull: true
+        },
+        user_id: {
+            type:DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id'
+            } 
+        }
+    },
+    {
+        sequelize,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'post' 
     }
-}
+);
+
+module.exports = Flyer;

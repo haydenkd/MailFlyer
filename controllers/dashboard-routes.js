@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
+const { destroy } = require('../models/User');
 const withAuth = require('../utils/auth');
 
 //GET.findAll====================================================================================
@@ -122,6 +123,31 @@ router.get('/create/', withAuth, (req, res) => {
             res.status(500).json(err);
         });
 });
+
+//DELETE==============================================================================
+router.delete('/', withAuth, (req,res) => {
+    Post.destroy ({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(dbPostData => {
+        if (!dbPostData) {
+            res.status(404).json({ message: "No Post Found"});
+            return;
+        }
+        res.json(dbPastData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
+
+
+
+
 
 
 module.exports = router;
