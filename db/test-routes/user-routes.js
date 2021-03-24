@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
+const bcrypt = require('bcrypt');
 const { User, Flyer, ContentType } = require('../../models');
 
 // get all users
@@ -37,9 +38,9 @@ router.get('/:id', (req, res) => {
 });
 
 // Update password by user ID
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
   User.update({
-      password: req.body.password
+      password: await bcrypt.hash(req.body.password, 10)
     },
     {
     where: {
