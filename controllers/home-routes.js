@@ -19,7 +19,16 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
-// user logout
+router.get('/signup', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+
+    res.render('signup');
+});
+//==========================================================================================================
+//LOGOUT==================================================================================================
 router.get('/logout', (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
@@ -30,13 +39,6 @@ router.get('/logout', (req, res) => {
     }
 });
 
-router.get('/signup', (req, res) => {
-    if (req.session.loggedIn) {
-        res.redirect('/');
-        return;
-    }
 
-    res.render('signup');
-});
 
 module.exports = router;

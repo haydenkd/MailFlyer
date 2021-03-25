@@ -27,7 +27,7 @@ CREATE TABLE flyer_frequency
     PRIMARY KEY (id)
 );
 
-CREATE TABLE flyer_list
+CREATE TABLE flyer_list 
 (
     id INT NOT NULL AUTO_INCREMENT,
     owner_id INT NULL,

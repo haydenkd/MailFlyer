@@ -5,37 +5,38 @@
       <br><br>
       <div class="row">
         <h1 class="header center orange-text">Create a Flyer</h1>
-        <form class="col s12">
-          <div class="row">
-            <h6>Who would you like to send your flyer to?</h6>
-            <div class="input-field col s12">
-                <input id="email" type="email" class="validate">
-                <label for="email">Email</label>
-            </div>
-            <br>
-            <h6>What type of flyer would you like to send?</h6>
-            <div class="input-field col s12">
+        
+        <form class="new-post-form col s12">
+            <div class="row">
+              <h6>Who would you like to send your flyer to?</h6>
+              <div class="input-field col s12">
+                  <input id="email" type="email" class="validate">
+                  <label for="email">Email</label>
+              </div>
+              <br>
+              <h6>What type of flyer would you like to send?</h6>
+              <div class="input-field col s12">
+                  <select>
+                      <option value="" disabled selected>Choose your option</option>
+                      <option value="1">Inspirational Quote</option>
+                      <option value="2">Dad Joke</option>
+                      <option value="3">Silly Insult</option>
+                  </select>
+              </div>
+              <br>
+              <h6>How often would you like to send your flyer?</h6>
+              <div class="input-field col s12">
                 <select>
                     <option value="" disabled selected>Choose your option</option>
-                    <option value="1">Inspirational Quote</option>
-                    <option value="2">Dad Joke</option>
-                    <option value="3">Silly Insult</option>
+                    <option value="1">Daily</option>
+                    <option value="2">Weekly</option>
+                    <option value="3">Monthly</option>
                 </select>
             </div>
-            <br>
-            <h6>How often would you like to send your flyer?</h6>
-            <div class="input-field col s12">
-              <select>
-                  <option value="" disabled selected>Choose your option</option>
-                  <option value="1">Daily</option>
-                  <option value="2">Weekly</option>
-                  <option value="3">Monthly</option>
-              </select>
           </div>
-        </div>
-          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-            <i class="material-icons right">send</i>
-          </button>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+              <i class="material-icons right">send</i>
+            </button>
         </form>
       </div>
     </div>

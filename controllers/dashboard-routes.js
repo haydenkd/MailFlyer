@@ -1,16 +1,13 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const {
-    User,
-    Flyer,
-    ContentType
-} = require('../models');
+const { User, Flyer, ContentType } = require('../models');
 const withAuth = require('../utils/auth');
 
 //GET.findAll====================================================================================
 router.get('/', withAuth, (req, res) => {
     Flyer.findAll({
             where: {
+                //USE THE ID FROM THE SESSION 
                 owner_id: req.session.user_id
             },
             include: [{
@@ -30,7 +27,8 @@ router.get('/', withAuth, (req, res) => {
             ]
         })
         .then(dbFlyerData => {
-            console.log(dbFlyerData);
+            console.log(dbFlyerData, 'WHERE ARE YOU DATA!!!!!!!!!!!!!'); //empty array so there is nothing to find - send it out 
+            // where it get saved 
             const flyers = dbFlyerData.map(flyer => flyer.get({
                 plain: true
             }));
