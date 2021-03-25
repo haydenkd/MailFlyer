@@ -18,11 +18,11 @@ router.get('/', withAuth, (req, res) => {
                     as: 'owner',
                     attributes: ['email']
                 },
-                {
-                    model: User,
-                    as: 'recipient',
-                    attributes: ['email']
-                },
+                // {
+                //     model: User,
+                //     as: 'recipient',
+                //     attributes: ['email']
+                // },
                 {
                     model: ContentType,
                     attributes: ['type']
