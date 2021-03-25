@@ -12,3 +12,7 @@
 .icon-block .material-icons {
 	font-size: inherit;
 }
+
+li.nostyle {
+  list-style-type: none;
+}
