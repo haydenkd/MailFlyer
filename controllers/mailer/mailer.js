@@ -23,7 +23,14 @@ let transporter = nodemailer.createTransport({
 });
 
 // send a flyer with a random meme from gfycat
-async function jokeFlyer(email){
+async function jokeFlyer(recipient){
+    var email = {
+        to: recipient,
+        subject: "New Flyer ✔",
+        text: "",
+        html: ""
+    }
+
     fetch('https://icanhazdadjoke.com/',{
         method: "GET",
         headers: {
@@ -40,7 +47,14 @@ async function jokeFlyer(email){
 }
 
 // send a flyer with an inspirational quote attached
-let quoteFlyer = function(email){
+let quoteFlyer = function(recipient){
+    var email = {
+        to: recipient,
+        subject: "New Flyer ✔",
+        text: "",
+        html: ""
+    }
+
     var selection = (Math.floor(Math.random()) * (quotes.length - 1));
     email.text = quotes[selection];
     email.html = `<b>${quotes[selection]}<b>`;
@@ -49,7 +63,14 @@ let quoteFlyer = function(email){
 }
 
 // send an insult flyer
-async function insultFlyer(email){
+async function insultFlyer(recipient){
+    var email = {
+        to: recipient,
+        subject: "New Flyer ✔",
+        text: "",
+        html: ""
+    }
+
     fetch("https://www.evilinsult.com/generate_insult.php?type=plain&lang=en&_=1616109722882")
     .then(res => res.text())
     .then(insultText => {
