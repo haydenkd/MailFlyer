@@ -3,22 +3,30 @@
       <br><br>
       <h1 class="header center orange-text">My Dashboard </h1>
       <div class="row center">
-        <h6>Your Flyers</h6>
         {{#if flyers.length}}
+        <table>
+                <thead>
+                  <tr>
+                    <th>Receipient</th>
+                    <th>Type of Flyer</th>
+                    <th>Schedule</th>
+                    <th></th>
+                  </tr>
+                </thead>
         <ol>
             {{#each flyers as |flyer|}}
-            <li>
+            <li class="nostyle">
                 {{> flyer-info flyer}}
-                <a href="/dashboard/edit/{{flyer.id}}">Edit Flyer</a>
             </li>
             {{/each}}
         </ol>
+        </table>
         {{else}}
         <p>You have no flyers yet.</p>
         {{/if}}
       </div>
       <form action="/dashboard/create" class="row center">
-        <button type="submit" class="btn-large waves-effect waves-light orange">Create a New Flyer</button>
+        <button type="submit" class="btn-large waves-effect waves-light blue">Create a New Flyer</button>
     </form>
     </div>
   </div>
