@@ -26,11 +26,18 @@ Flyer.init(
         key: 'id'
       }
     },
-    recipient_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'email_addresses',
-        key: 'id'
+    // recipient_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: 'email_addresses',
+    //     key: 'id'
+    //   }
+    // },
+    recipient: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isEmail: true
       }
     },
     start_date: {
