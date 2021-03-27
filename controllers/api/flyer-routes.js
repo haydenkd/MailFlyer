@@ -112,6 +112,23 @@ router.post('/', withAuth, (req, res) => {
 
 
 //DELETE==========================================================================================
-// delete the fyler 
+// Delete flyer by ID
+router.delete('/:id', (req, res) => {
+    Flyer.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(dbFlyerData => {
+        if (!dbFlyerData) {
+          res.status(404).json({ message: 'No flyer found with this id' });
+          return;
+        }
+        res.json(dbFlyerData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
 
 module.exports = router;
