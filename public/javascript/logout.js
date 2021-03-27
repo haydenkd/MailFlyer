@@ -8,6 +8,7 @@ async function logout() {
 
   if (response.ok) {
     document.location.replace('/');
+    window.alert('You have been logged out!')
   } else {
     alert(response.statusText);
   }

@@ -1,4 +1,6 @@
+require('dotenv').config({path: '../../.env'});
 const router = require('express').Router();
+const { insultFlyer, jokeFlyer, quoteFlyer} = require('../mailer/mailer');
 const {
     User,
     Flyer,
@@ -83,7 +85,21 @@ router.post('/', withAuth, (req, res) => {
             frequency: req.body.frequency,
             active: req.body.active
         })
-        .then(dbFlyerData => res.json(dbFlyerData))
+        .then(dbFlyerData => {
+            res.json(dbFlyerData);
+            console.log("LOOK HERE");
+            if(dbFlyerData.dataValues.content_id === "1"){
+                quoteFlyer(dbFlyerData.dataValues.recipient);
+            }
+        
+            if(dbFlyerData.dataValues.content_id === "2"){
+                jokeFlyer(dbFlyerData.dataValues.recipient);
+            }
+        
+            if(dbFlyerData.dataValues.content_id === "3"){
+                insultFlyer(dbFlyerData.dataValues.recipient);
+            }
+        })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);

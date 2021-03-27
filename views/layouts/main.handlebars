@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>MailPest</title>
+  <title>MailFlyer</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -18,7 +18,7 @@
       <ul class="right hide-on-med-and-down">
         {{#if loggedIn}}
         <li><a href="/dashboard">Dashboard</a></li>
-        <li><a href="/logout">Log Out</a></li>
+        <li><button id="logout" class="waves-effect waves-light btn">Log Out</button></li>
         {{else}}
         <li><a href="/login">Log In</a></li>
         {{/if}}
