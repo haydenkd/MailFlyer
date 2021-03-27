@@ -14,11 +14,11 @@ Flyer.belongsTo(User, {
     onDelete: 'SET NULL'
 });
 
-Flyer.belongsTo(User, {
-    foreignKey: 'recipient_id',
-    as: 'recipient',
-    onDelete: 'SET NULL'
-});
+// Flyer.belongsTo(User, {
+//     foreignKey: 'recipient_id',
+//     as: 'recipient',
+//     onDelete: 'SET NULL'
+// });
 
 Flyer.belongsTo(ContentType, {
     foreignKey: 'content_id',
