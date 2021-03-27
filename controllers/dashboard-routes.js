@@ -30,12 +30,39 @@ router.get('/', withAuth, (req, res) => {
             ]
         })
         .then(dbFlyerData => {
-            console.log(dbFlyerData);
-            const flyers = dbFlyerData.map(flyer => flyer.get({
-                plain: true
-            }));
+            console.log("\n\n\nNEW DATA\n\n\n");
+
+            let dashboardData = [];
+            for (var i = 0; i < dbFlyerData.length; i++)
+            {
+                var freq;
+                if (dbFlyerData[i].frequency === 1)
+                {
+                    freq = "Daily";
+                }
+                else if (dbFlyerData[i].frequency === 7)
+                {
+                    freq = "Weekly";
+                }
+                else
+                {
+                    freq = "Monthly";
+                }
+                dashboardData.push({
+                    id: dbFlyerData[i].dataValues.id,
+                    recipient: dbFlyerData[i].dataValues.recipient,
+                    type: dbFlyerData[i].dataValues.flyer_type.dataValues.type,
+                    schedule: freq
+                })
+            }
+            console.log(dashboardData);
+            console.log("\n\n\nNEW DATA\n\n\n");
+            // const flyers = dbFlyerData.map(flyer => flyer.get({
+            //     plain: true
+            // }));
+            // console.log(flyers);
             res.render('dashboard', {
-                flyers,
+                dashboardData,
                 loggedIn: true
             });
         })
