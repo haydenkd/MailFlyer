@@ -1,15 +1,7 @@
 <tbody>
     <tr>
       <td>{{recipient}}</td>
-      {{#if content_id =1}}
-      <td>{{helper.1}}</td>
-      {{/if}}
-      {{#if content_id = 2}}
-      <td>{{helper.2}}</td>
-      {{/if}}
-      {{#if}}
-      <td>{{helper.3}}</td>
-      {{/if}}
+      <td>{{content_id}}</td>
       <td>{{frequency}}</td>
       <td><a href="/dashboard/delete/{{flyer.id}}">Delete Flyer</a></td>
     </tr>
