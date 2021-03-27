@@ -6,6 +6,7 @@ const {
     ContentType
 } = require('../models');
 const withAuth = require('../utils/auth');
+const helper = require('../utils/helpers');
 
 //GET.findAll====================================================================================
 router.get('/', withAuth, (req, res) => {
@@ -36,7 +37,8 @@ router.get('/', withAuth, (req, res) => {
             }));
             res.render('dashboard', {
                 flyers,
-                loggedIn: true
+                loggedIn: true,
+                helper: helper
             });
         })
         .catch(err => {
