@@ -57,12 +57,12 @@ router.get('/', withAuth, (req, res) => {
             }
             console.log(dashboardData);
             console.log("\n\n\nNEW DATA\n\n\n");
-            const flyers = dbFlyerData.map(flyer => flyer.get({
-                plain: true
-            }));
-            console.log(flyers);
+            // const flyers = dbFlyerData.map(flyer => flyer.get({
+            //     plain: true
+            // }));
+            // console.log(flyers);
             res.render('dashboard', {
-                flyers,
+                dashboardData,
                 loggedIn: true
             });
         })
