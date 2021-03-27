@@ -122,7 +122,8 @@ router.delete('/:id', withAuth, (req, res) => {
     console.log('id', req.params.id);
     Flyer.destroy({
             where: {
-                id: req.params.id
+                id: req.params.id,
+                owner_id: req.session.user_id
             }
         })
         .then(dbFlyerData => {
