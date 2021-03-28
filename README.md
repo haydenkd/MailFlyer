@@ -47,7 +47,7 @@ node seeds/index
 Start the server using the following command at the root of your local repository:
 
 ```
-node server.js
+npm start
 ```
 
 Once there server is running, you can now access the application by pasting the following address in your web browser.
