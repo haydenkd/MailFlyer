@@ -6,6 +6,9 @@ const d = new Date();
 function checkDate(frequency, lastDateString){
     let lastDay = (parseInt(lastDateString[8]) * 10) + parseInt(lastDateString[9]);
     let lastMonth = (parseInt(lastDateString[5]) * 10) + parseInt(lastDateString[6]);
+    if (d.getMonth() === lastMonth){
+        return lastDay > parseInt(frequency);
+    }
 
     if (lastMonth === 02){ // 28 day month previously
         if ((28 - lastDay + d.getDate()) > parseInt(frequency)){
