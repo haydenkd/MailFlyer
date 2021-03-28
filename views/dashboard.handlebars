@@ -4,7 +4,7 @@
       <h1 class="header center orange-text">My Dashboard </h1>
       <div class="row center">
         
-        {{#if flyers.length}}
+        {{#if dashboardData.length}}
         <table>
                 <thead>
                   <tr>
@@ -15,7 +15,7 @@
                   </tr>
                 </thead>
         <ol>
-            {{#each flyers as |flyer|}}
+            {{#each dashboardData as |flyer|}}
             <li class="nostyle">
                 {{> flyer-info flyer}}      
             </li>

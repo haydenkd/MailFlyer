@@ -1,6 +1,12 @@
-require('dotenv').config({path: '../../.env'});
+require('dotenv').config({
+    path: '../../.env'
+});
 const router = require('express').Router();
-const { insultFlyer, jokeFlyer, quoteFlyer} = require('../mailer/mailer');
+const {
+    insultFlyer,
+    jokeFlyer,
+    quoteFlyer
+} = require('../mailer/mailer');
 const {
     User,
     Flyer,
@@ -92,12 +98,12 @@ router.post('/', withAuth, (req, res) => {
             if(dbFlyerData.dataValues.content_id === "1"){
                 quoteFlyer(dbFlyerData.dataValues.recipient);
             }
-        
-            if(dbFlyerData.dataValues.content_id === "2"){
+
+            if (dbFlyerData.dataValues.content_id === "2") {
                 jokeFlyer(dbFlyerData.dataValues.recipient);
             }
-        
-            if(dbFlyerData.dataValues.content_id === "3"){
+
+            if (dbFlyerData.dataValues.content_id === "3") {
                 insultFlyer(dbFlyerData.dataValues.recipient);
             }
         })
@@ -113,6 +119,27 @@ router.post('/', withAuth, (req, res) => {
 
 
 //DELETE==========================================================================================
-// delete the fyler 
+router.delete('/:id', withAuth, (req, res) => {
+    console.log('id', req.params.id);
+    Flyer.destroy({
+            where: {
+                id: req.params.id,
+                owner_id: req.session.user_id
+            }
+        })
+        .then(dbFlyerData => {
+            if (!dbFlyerData) {
+                res.status(404).json({
+                    message: 'No flyer found with this id'
+                });
+                return;
+            }
+            res.json(dbFlyerData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
 
 module.exports = router;
