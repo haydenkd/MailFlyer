@@ -119,21 +119,19 @@ router.post('/', withAuth, (req, res) => {
 
 //DELETE==========================================================================================
 router.delete('/:id', withAuth, (req, res) => {
-    console.log('id', req.params.id);
     Flyer.destroy({
             where: {
                 id: req.params.id,
-                owner_id: req.session.user_id
             }
         })
-        .then(dbFlyerData => {
-            if (!dbFlyerData) {
+        .then(dbFlyer => {
+            if (!dbFlyer) {
                 res.status(404).json({
-                    message: 'No flyer found with this id'
+                    message: 'You have no FLYERS!!!!'
                 });
                 return;
             }
-            res.json(dbFlyerData);
+            res.json(dbFlyer);
         })
         .catch(err => {
             console.log(err);
