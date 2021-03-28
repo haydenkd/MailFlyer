@@ -6,7 +6,8 @@ const {
     Flyer,
     ContentType
 } = require('../../models');
-const withAuth = require('../../utils/auth')
+const withAuth = require('../../utils/auth');
+const d = new Date();
 
 //GET==========================================================================================
 //GET all flyers
@@ -82,12 +83,12 @@ router.post('/', withAuth, (req, res) => {
             recipient: req.body.recipient,
             start_date: req.body.start_date,
             stop_date: req.body.stop_date,
+            prev_flyer_date: `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`,
             frequency: req.body.frequency,
             active: req.body.active
         })
         .then(dbFlyerData => {
             res.json(dbFlyerData);
-            console.log("LOOK HERE");
             if(dbFlyerData.dataValues.content_id === "1"){
                 quoteFlyer(dbFlyerData.dataValues.recipient);
             }

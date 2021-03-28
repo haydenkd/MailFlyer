@@ -90,7 +90,8 @@ let sendFlyer = function(email){
         subject: email.subject, // Subject line
         text: email.text, // plain text body
         html: email.html, // html body
-    });
+    })
+    .catch(err => console.error(err));;
 }
 
 module.exports = {
