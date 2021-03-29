@@ -2,7 +2,7 @@
 
 async function deleteFlyer(id) {
     
-    const response = await fetch(`/dashboard/${id}`, {
+    const response = await fetch(`../api/flyer/${id}`, {
       method: 'DELETE'
     });
   
@@ -13,23 +13,15 @@ async function deleteFlyer(id) {
     }
   }
 
-
-  //get all the data, .then, save all the data into a variable (including the id)
-  //pull the variable
-
-
-
 // Delete the clicked note
-handleFlyerDelete = (e) => {
+function handleFlyerDelete(e){
   if (e.target.matches('.delete-flyer-btn')){
     e.stopPropagation();
+    // let test = e.target.closest('.delete-flyer-btn');
+    // console.log(test);
     console.log(this);
-    const flyerId = e.target.getAttribute('id');
+    const flyerId = e.target.id;
     console.log(flyerId);
-   
-    // if (activeFlyer.id === flyerId) {
-    //   activeFlyer= {};
-    // }
   
     deleteFlyer(flyerId).then(() => {
       // getAndRenderNotes();
