@@ -18,7 +18,7 @@ let transporter = nodemailer.createTransport({
     secure: true, // true for 465, false for other ports
     auth: {
       user: "mailflyer@schlocked.com",
-      pass: "uniquepassword1",
+      pass: process.env.EMAIL_PASS,
     }
 });
 
