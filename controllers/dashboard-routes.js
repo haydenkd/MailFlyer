@@ -36,11 +36,11 @@ router.get('/', withAuth, (req, res) => {
             for (var i = 0; i < dbFlyerData.length; i++)
             {
                 var freq;
-                if (dbFlyerData[i].frequency === 1)
+                if (parseInt(dbFlyerData[i].frequency) === 1)
                 {
                     freq = "Daily";
                 }
-                else if (dbFlyerData[i].frequency === 7)
+                else if (parseInt(dbFlyerData[i].frequency) === 7)
                 {
                     freq = "Weekly";
                 }

@@ -3,18 +3,18 @@ async function newFormHandler(event) {
 
   const recipient = document.querySelector('input[id="email"]').value;
   const type = document.querySelector('#flyerChoice').value;
-  const schedule = document.querySelector('#duration').value;
+  const frequency = document.querySelector('#duration').value;
 
   sessionStorage.setItem("recipient", recipient)
   sessionStorage.setItem("type", type)
-  sessionStorage.setItem("schedule", schedule)
+  sessionStorage.setItem("schedule", frequency)
 
   console.log("\n\n");
   console.log("\n\n");
   console.log("\n\n");
   console.log(recipient);
   console.log(type);
-  console.log(schedule);
+  console.log(frequency);
   console.log("\n\n");
   console.log("\n\n");
   console.log("\n\n");
@@ -24,7 +24,7 @@ async function newFormHandler(event) {
     body: JSON.stringify({
       recipient,
       type,
-      schedule
+      frequency
     }),
     headers: {
       'Content-Type': 'application/json'
