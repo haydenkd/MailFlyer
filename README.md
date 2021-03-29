@@ -12,6 +12,18 @@ Keep in touch by sending your loved ones a inspirational quote, Dad joke, or sil
 
 Choose if they receive it daily, weekly, or monthly!
 
+## Table of Contents
+
+  * [Installation](#installation)
+
+  * [Database Setup](#databasesetup)
+
+  * [Usage](#usage)
+
+  * [Contribution](#contribution)
+
+  * [Questions](#questions)
+
 ## Installation
 
 First, install `Node.js 14` and `MySQL 8` or newer on your system. Then clone this repository and navigate to the local folder via command line. Next install the necessary packages with `npm install` at the root of local repository. See respective documentation in the links below.
@@ -58,8 +70,12 @@ localhost:3001
 
 On the landing page you can create your account, and now you are all set to start creating flyers to send to friends and family.
 
-## Questions
+## Contribution 
 
-Direct questions to:
+  All contributions are welcome. Please visit the [issues](https://github.com/haydenkd/MailFlyer/issues) tab  to contribute.
 
-* 
+ ## Questions
+
+  If you have additional questions, please email us at priya.macpherson@gmail.com.
+
+  
