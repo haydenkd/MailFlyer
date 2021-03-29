@@ -4,10 +4,11 @@
       <h1 class="header center orange-text">My Dashboard </h1>
       <div class="row center">
         
-        {{#if dashboardData.length}}
-        <table>
+        {{#if flyers.length}}
+        <table class="flyer-table">
                 <thead>
                   <tr>
+                    <th>Flyer Id</th>
                     <th>Receipient</th>
                     <th>Type of Flyer</th>
                     <th>Schedule</th>
@@ -15,7 +16,7 @@
                   </tr>
                 </thead>
         <ol>
-            {{#each dashboardData as |flyer|}}
+            {{#each flyers as |flyer|}}
             <li class="nostyle">
                 {{> flyer-info flyer}}      
             </li>
@@ -26,8 +27,10 @@
         <p>You have no flyers yet.</p>
         {{/if}}
       </div>
-      <form action="/dashboard/create" class="row center">
-        <button type="submit" class="btn-large waves-effect waves-light blue">Create a New Flyer</button>
+      <form class="row center">
+        <button type="submit" class= "btn-large waves-effect waves-light blue">Create a New Flyer</button>
     </form>
     </div>
   </div>
+
+  
